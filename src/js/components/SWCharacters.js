@@ -86,7 +86,7 @@ export default function SWCharacters() {
                 <p>
                     <button onClick={() => {
                         getCharacters()
-                    }}>fetch more data</button>
+                    }} className="btn">fetch more data</button>
                 </p>
                 : ''
             }
