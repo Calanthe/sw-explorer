@@ -5,9 +5,9 @@ const { useEffect, useState } = React;
 
 const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi'];
 
-const fetchData = () => { //this function returns a promise
+const fetchData = (pageNo) => { //this function returns a promise
     return axios
-        .get(`https://swapi.dev/api/people/`)
+        .get(`https://swapi.dev/api/people/?page=${pageNo}`)
         .then((fetchedData) => {
             console.log(fetchedData);
             return fetchedData.data.results;
@@ -15,12 +15,6 @@ const fetchData = () => { //this function returns a promise
         .catch((error) => {
             console.error(error);
         });
-};
-
-const getUserInfos = (userInfo) => {
-    const {name: {first, last}} = userInfo;
-    return `${first} ${last}`;
-    //return `${userInfo.name?.first} ${userInfo.name?.last}`;
 };
 
 const removeWhiteSpaces = (string) => {
@@ -46,13 +40,18 @@ const getCharacterImg = (name) => {
 
 export default function SWCharacters() {
     const [characters, setCharacters] = useState([]);
+    const [pageNo, setPageNo] = useState(1);
 
     const getCharacters = () => {
-        return fetchData().then((charactersData) => {
+        return fetchData(pageNo).then((charactersData) => {
             console.log(charactersData)
             if (charactersData === undefined) return;
-
-            setCharacters(charactersData);
+            const newCharactersData = [
+                ...characters,
+                ...charactersData
+            ];
+            setCharacters(newCharactersData);
+            setPageNo(pageNo + 1);
         });
     };
 
@@ -63,12 +62,6 @@ export default function SWCharacters() {
 
     return (
         <div className="characters">
-            <p>
-                <button onClick={() => {
-                    getCharacters();
-                }}>fetch new data</button>
-            </p>
-
             <div className="entries">
                 {
                     characters.map((character, idx) => (
@@ -86,6 +79,11 @@ export default function SWCharacters() {
                     ))
                 }
             </div>
+            <p>
+                <button onClick={() => {
+                    getCharacters();
+                }}>fetch new data</button>
+            </p>
         </div>
     )
 }  
