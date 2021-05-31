@@ -17,9 +17,7 @@ body {
 .entries {
   display: grid;
   grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(5, 300px);
-  grid-auto-flow: row;
-  grid-gap: 10px;
+  gap: 15px 10px;
 }
 
 .entry {
@@ -27,6 +25,7 @@ body {
   background-color: #F8F8F8;
   border-radius: 14px;
   padding: 10px;
+  height: 300px;
 }
 
 .entry-header {

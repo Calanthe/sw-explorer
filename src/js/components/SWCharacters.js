@@ -9,7 +9,6 @@ const fetchData = (pageNo) => { //this function returns a promise
     return axios
         .get(`https://swapi.dev/api/people/?page=${pageNo}`)
         .then((fetchedData) => {
-            console.log(fetchedData);
             return fetchedData.data.results;
         })
         .catch((error) => {
@@ -38,13 +37,16 @@ const getCharacterImg = (name) => {
     else return `${getWindowHost()}/img/not-found.png`;
 };
 
+const showFetchMoreBtn = (pageNo) => {
+    return pageNo <= 9;
+};
+
 export default function SWCharacters() {
     const [characters, setCharacters] = useState([]);
     const [pageNo, setPageNo] = useState(1);
 
     const getCharacters = () => {
         return fetchData(pageNo).then((charactersData) => {
-            console.log(charactersData)
             if (charactersData === undefined) return;
             const newCharactersData = [
                 ...characters,
@@ -54,6 +56,7 @@ export default function SWCharacters() {
             setPageNo(pageNo + 1);
         });
     };
+
 
     useEffect(() => {
         getCharacters()
@@ -79,11 +82,14 @@ export default function SWCharacters() {
                     ))
                 }
             </div>
-            <p>
-                <button onClick={() => {
-                    getCharacters();
-                }}>fetch new data</button>
-            </p>
+            {showFetchMoreBtn(pageNo) ? 
+                <p>
+                    <button onClick={() => {
+                        getCharacters()
+                    }}>fetch more data</button>
+                </p>
+                : ''
+            }
         </div>
     )
 }  
