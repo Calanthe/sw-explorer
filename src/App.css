@@ -6,7 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  background-color: #EAEAEA;
+  background-color: #000000;
+}
+
+.header {
+  font-size: 60px;
+  text-align: center;
+  padding: 30px;
+}
+
+.header-img {
+  display: block;
+  margin: 4px auto;
 }
 
 .characters {
@@ -48,17 +59,18 @@ body {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid #797676;
-  background-color: #F7D58F;
+  background-color: #000000;
   margin: 10px 0;
   box-sizing: border-box;
   text-decoration: none;
   font-weight: 300;
-  color: #1b0404;
+  color: #fdf252;
   text-align: center;
   cursor: pointer;
   border-radius: 14px;
 }
+
 .btn:hover {
-  color: #000000;
-  background-color: #F8F8F8;
+  color: #FFFFFF;
+  border-color: #fdf252;
 }
