@@ -1,21 +1,10 @@
 import * as React from "react";
-import axios from "axios";
+import useFetch from "./useFetch";
 
 const { useEffect, useState } = React;
 
 const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi', 'Anakin Skywalker', 'Chewbacca', 'Han Solo', 'Greedo', 'Jabba Desilijic Tiure', 'Yoda', 'Palpatine',
                         'Boba Fett', 'Jango Fett', 'Lando Calrissian', 'Ackbar', 'Qui-Gon Jinn', 'Padmé Amidala', 'Jar Jar Binks', 'Darth Maul', 'Mace Windu', 'Dooku', 'Biggs Darklighter', 'Watto'];
-
-const fetchData = (pageNo) => { //this function returns a promise
-    return axios
-        .get(`https://swapi.dev/api/people/?page=${pageNo}`)
-        .then((fetchedData) => {
-            return fetchedData.data.results;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
 
 const removeWhiteSpaces = (string) => {
     return string.replace(/\s/g, '');
@@ -43,32 +32,37 @@ const showFetchMoreBtn = (pageNo) => {
 };
 
 export default function SWCharacters() {
-    const [characters, setCharacters] = useState([]);
+    //const [characters, setCharacters] = useState([]);
     const [pageNo, setPageNo] = useState(1);
 
+    //let characters = [];
+
+    let [ characters, loading, error ] = useFetch(pageNo);
+    
     const getCharacters = () => {
-        return fetchData(pageNo).then((charactersData) => {
-            if (charactersData === undefined) return;
-            const newCharactersData = [
-                ...characters,
-                ...charactersData
-            ];
-            setCharacters(newCharactersData);
-            setPageNo(pageNo + 1);
-        });
+        setPageNo(pageNo + 1);
     };
 
+    // if (newCharacters) {
+    //     const newCharactersData = [
+    //         ...characters,
+    //         ...newCharacters
+    //     ];
+    //     setCharacters(newCharactersData);
+    //     setPageNo(pageNo + 1);
+    // }
 
     useEffect(() => {
-        getCharacters()
+        //getCharacters()
         // eslint-disable-next-line
     }, []);
 
     return (
         <div className="characters">
             <div className="entries">
+                { loading ? 'Fetching data...' : '' }
                 {
-                    characters.map((character, idx) => (
+                    characters?.map((character, idx) => (
                         <div key={idx} className="entry">
                             <h5 className="entry-header">{character.name}</h5>
                             <p className="entry-info">gender: {character.gender}</p>
@@ -82,6 +76,7 @@ export default function SWCharacters() {
                         </div>
                     ))
                 }
+                { error ? error : '' }
             </div>
             {showFetchMoreBtn(pageNo) ? 
                 <p>
