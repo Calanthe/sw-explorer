@@ -1,24 +1,10 @@
 import * as React from "react";
 import useFetch from "./useFetch";
+import { isKnownCharacter } from ".././utils/knownData";
+import { getWindowHost, removeWhiteSpaces } from ".././utils/urlUtils";
 
 const { useState } = React;
-
-const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi', 'Anakin Skywalker', 'Chewbacca', 'Han Solo', 'Greedo', 'Jabba Desilijic Tiure', 'Yoda', 'Palpatine',
-                        'Boba Fett', 'Jango Fett', 'Lando Calrissian', 'Ackbar', 'Qui-Gon Jinn', 'Padmé Amidala', 'Jar Jar Binks', 'Darth Maul', 'Mace Windu', 'Dooku', 'Biggs Darklighter', 'Watto'];
-
-const removeWhiteSpaces = (string) => {
-    return string.replace(/\s/g, '');
-};
-
-const getWindowHost = () => {
-    return window.location.protocol + "//" + window.location.host;
-};
-
-const isKnownCharacter = (name) => {
-    return knownCharacters.find((element) => {
-        return element === name;
-    });
-};
+const maxPagesNo = 9;
 
 const getCharacterImg = (name) => {
     if (isKnownCharacter(name)) {
@@ -28,7 +14,7 @@ const getCharacterImg = (name) => {
 };
 
 const showFetchMoreBtn = (pageNo) => {
-    return pageNo <= 9;
+    return pageNo <= maxPagesNo;
 };
 
 export default function SWCharacters() {
