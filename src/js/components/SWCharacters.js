@@ -21,7 +21,7 @@ export default function SWCharacters() {
     const [pageNo, setPageNo] = useState(1);
 
     let [characters, setCharacters] = useState([]);
-    let loading = false, 
+    let loading = true, 
         error;
 
     [ characters, loading, error ] = useFetch('people', pageNo, characters);
@@ -41,7 +41,6 @@ export default function SWCharacters() {
     return (
         <div className="characters">
             <div className="entries">
-                { loading ? 'Fetching data...' : '' }
                 {
                     characters?.map((character, idx) => (
                         <div key={idx} className="entry">
@@ -57,7 +56,10 @@ export default function SWCharacters() {
                         </div>
                     ))
                 }
+            </div>
+            <div className="extras">
                 { error ? error : '' }
+                { loading ? <img src={`${getWindowHost()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
             </div>
             {showFetchMoreBtn(pageNo) ? 
                 <p>

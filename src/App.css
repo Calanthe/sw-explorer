@@ -81,3 +81,15 @@ body {
   color: #FFFFFF;
   border-color: #fdf252;
 }
+
+.extras {
+  text-align: center;
+  color: #FFFFFF;
+  padding: 20px 0;
+}
+
+.loader { 
+  width: 100px;
+  height: 100px;
+}
+

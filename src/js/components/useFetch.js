@@ -8,6 +8,8 @@ export default function useFetch(urlName, pageNo, prevData) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+
     return axios
       .get(`https://swapi.dev/api/${urlName}/?page=${pageNo}`)
       .then(response => {
