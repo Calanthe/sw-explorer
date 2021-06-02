@@ -1,7 +1,7 @@
 import * as React from "react";
 import useFetch from "./useFetch";
 
-const { useEffect, useState } = React;
+const { useState } = React;
 
 const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi', 'Anakin Skywalker', 'Chewbacca', 'Han Solo', 'Greedo', 'Jabba Desilijic Tiure', 'Yoda', 'Palpatine',
                         'Boba Fett', 'Jango Fett', 'Lando Calrissian', 'Ackbar', 'Qui-Gon Jinn', 'Padmé Amidala', 'Jar Jar Binks', 'Darth Maul', 'Mace Windu', 'Dooku', 'Biggs Darklighter', 'Watto'];
@@ -32,30 +32,25 @@ const showFetchMoreBtn = (pageNo) => {
 };
 
 export default function SWCharacters() {
-    //const [characters, setCharacters] = useState([]);
     const [pageNo, setPageNo] = useState(1);
 
-    //let characters = [];
+    let [characters, setCharacters] = useState([]);
+    let loading = false, 
+        error;
 
-    let [ characters, loading, error ] = useFetch(pageNo);
+    [ characters, loading, error ] = useFetch('people', pageNo, characters);
     
     const getCharacters = () => {
+        setCharacters(characters);
         setPageNo(pageNo + 1);
+        // if (characters) {
+        //     const newCharactersData = [
+        //         ...characters,
+        //         ...fetchedCharacters
+        //     ];
+        //     setCharacters(newCharactersData);
+        // }
     };
-
-    // if (newCharacters) {
-    //     const newCharactersData = [
-    //         ...characters,
-    //         ...newCharacters
-    //     ];
-    //     setCharacters(newCharactersData);
-    //     setPageNo(pageNo + 1);
-    // }
-
-    useEffect(() => {
-        //getCharacters()
-        // eslint-disable-next-line
-    }, []);
 
     return (
         <div className="characters">
