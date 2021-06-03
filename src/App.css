@@ -23,7 +23,7 @@ body {
 .menu {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   list-style-type: none;
   margin: 0 auto;
   padding: 0 0 20px 0;
