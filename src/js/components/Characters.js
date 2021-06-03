@@ -7,7 +7,7 @@ const maxPagesNo = 9;
 
 const getCharacterImg = (name) => {
     if (isKnownCharacter(name)) {
-        return `${getWindowHost()}/img/${removeWhiteSpaces(name)}.png`;
+        return `${getWindowHost()}/img/characters/${removeWhiteSpaces(name)}.png`;
     }
     else return `${getWindowHost()}/img/not-found.png`;
 };
@@ -28,17 +28,10 @@ export default function Characters() {
     const getCharacters = () => {
         setCharacters(characters);
         setPageNo(pageNo + 1);
-        // if (characters) {
-        //     const newCharactersData = [
-        //         ...characters,
-        //         ...fetchedCharacters
-        //     ];
-        //     setCharacters(newCharactersData);
-        // }
     };
 
     return (
-        <div className="characters">
+        <div className="entries-wrapper">
             <div className="entries">
                 {
                     characters?.map((character, idx) => (

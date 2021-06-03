@@ -6,7 +6,7 @@ import { getWindowHost, removeWhiteSpaces } from "../utils/urlUtils";
 const { useState } = React;
 const maxPagesNo = 9;
 
-const getCharacterImg = (name) => {
+const getMovieImg = (name) => {
     if (isKnownCharacter(name)) {
         return `${getWindowHost()}/img/${removeWhiteSpaces(name)}.png`;
     }
@@ -20,40 +20,29 @@ const showFetchMoreBtn = (pageNo) => {
 export default function Movies() {
     const [pageNo, setPageNo] = useState(1);
 
-    let [characters, setCharacters] = useState([]);
+    let [movies, setMovies] = useState([]);
     let loading = true, 
         error;
 
-    [ characters, loading, error ] = useFetch('people', pageNo, characters);
+    [ movies, loading, error ] = useFetch('films', pageNo, movies);
     
-    const getCharacters = () => {
-        setCharacters(characters);
+    const getMovies = () => {
+        setMovies(movies);
         setPageNo(pageNo + 1);
-        // if (characters) {
-        //     const newCharactersData = [
-        //         ...characters,
-        //         ...fetchedCharacters
-        //     ];
-        //     setCharacters(newCharactersData);
-        // }
     };
 
     return (
-        <div className="characters">
+        <div className="entries-wrapper">
             <div className="entries">
                 {
-                    characters?.map((character, idx) => (
+                    movies?.map((movie, idx) => (
                         <div key={idx} className="entry">
-                            Movie:
-                            <h5 className="entry-header">{character.name}</h5>
-                            <p className="entry-info">gender: {character.gender}</p>
-                            <p className="entry-info">born: {character.birth_year}</p>
-                            <p className="entry-info">eyes: {character.eye_color}</p>
-                            <p className="entry-info">hair color: {character.hair_color}</p>
-                            <p className="entry-info">height: {character.height} cm</p>
-                            <p className="entry-info">mass: {character.mass} kg</p>
-                            <p className="entry-info">skin color: {character.skin_color}</p>
-                            <img src={getCharacterImg(character.name)} className="entry-img" alt={character.name} />
+                            <h5 className="entry-header">{movie.title}</h5>
+                            <p className="entry-info">director: {movie.director}</p>
+                            <p className="entry-info">producer: {movie.producer}</p>
+                            <p className="entry-info">release date: {movie.release_date}</p>
+                            <p className="entry-info">opening crawl: {movie.opening_crawl}</p>
+                            <img src={getMovieImg(movie.name)} className="entry-img" alt={movie.name} />
                         </div>
                     ))
                 }
@@ -65,7 +54,7 @@ export default function Movies() {
             {showFetchMoreBtn(pageNo) ? 
                 <p>
                     <button onClick={() => {
-                        getCharacters()
+                        getMovies()
                     }} className="btn">fetch more data</button>
                 </p>
                 : ''
