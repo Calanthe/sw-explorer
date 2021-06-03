@@ -12,12 +12,46 @@ body {
 .header {
   font-size: 60px;
   text-align: center;
-  padding: 30px;
+  padding: 30px 0 20px 0;
 }
 
 .header-img {
   display: block;
   margin: 4px auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+  width: 828px;
+}
+
+.menu-item {
+  padding: 0 10px;
+}
+
+.menu-link {
+  --fill-color: #FDF252;
+  position: relative;
+  display: block;
+  padding: 4px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--fill-color);
+  background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+  color: transparent;
+  background-clip: text;
+  transition: 0.3s linear;
+}
+
+.menu-link:hover {
+  background-size: 100%;
 }
 
 .entries-wrapper {

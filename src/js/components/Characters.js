@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFetch from "./useFetch";
+import useFetch from "../utils/useFetch";
 import { isKnownCharacter } from "../utils/knownData";
 import { getWindowHost, removeWhiteSpaces } from "../utils/urlUtils";
 

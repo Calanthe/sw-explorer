@@ -19,12 +19,24 @@ function App() {
             <img src={`${getWindowHost()}/img/star.svg`} alt="Star" className="header-img"/>
             <img src={`${getWindowHost()}/img/wars.svg`} alt="Wars" className="header-img"/>
           </header>
-          <ul>
-            <li>
-              <Link to="/characters">Characters</Link>
+          <ul className="menu">
+            <li className="menu-item">
+              <Link to="/characters" className="menu-link">Characters</Link>
             </li>
-            <li>
-              <Link to="/movies">Movies</Link>
+            <li className="menu-item">
+              <Link to="/movies" className="menu-link">Movies</Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/characters" className="menu-link">Starships</Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/characters" className="menu-link">Planets</Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/characters" className="menu-link">Vehicles</Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/characters" className="menu-link">Species</Link>
             </li>
           </ul>
         </nav>
