@@ -1,7 +1,7 @@
 import * as React from "react";
 import useFetch from "./useFetch";
-import { isKnownCharacter } from ".././utils/knownData";
-import { getWindowHost, removeWhiteSpaces } from ".././utils/urlUtils";
+import { isKnownCharacter } from "../utils/knownData";
+import { getWindowHost, removeWhiteSpaces } from "../utils/urlUtils";
 
 const { useState } = React;
 const maxPagesNo = 9;
@@ -17,7 +17,7 @@ const showFetchMoreBtn = (pageNo) => {
     return pageNo <= maxPagesNo;
 };
 
-export default function SWCharacters() {
+export default function Movies() {
     const [pageNo, setPageNo] = useState(1);
 
     let [characters, setCharacters] = useState([]);
@@ -44,6 +44,7 @@ export default function SWCharacters() {
                 {
                     characters?.map((character, idx) => (
                         <div key={idx} className="entry">
+                            Movie:
                             <h5 className="entry-header">{character.name}</h5>
                             <p className="entry-info">gender: {character.gender}</p>
                             <p className="entry-info">born: {character.birth_year}</p>
