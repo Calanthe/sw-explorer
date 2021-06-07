@@ -1,6 +1,7 @@
 import './App.css';
 import SwExplorer from './js/components/SwExplorer';
 import { getWindowHost } from "./js/utils/urlUtils";
+import { queryTypes } from "./js/utils/knownData";
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,10 +43,10 @@ function App() {
 
         <Switch>
           <Route path="/characters">
-            <SwExplorer dataType="people"/>
+            <SwExplorer dataType="characters"/>
           </Route>
           <Route path="/movies">
-            <SwExplorer dataType="films"/>
+            <SwExplorer dataType="movies"/>
           </Route>
           <Route 
             exact

@@ -47,8 +47,8 @@ export const SwEntriesCharacters = ({ entry }) => {
 };
 
 const SwEntriesTemplates = {
-    'people': SwEntriesCharacters,
-    'films': SwEntriesMovies
+    'characters': SwEntriesCharacters,
+    'movies': SwEntriesMovies
 };
 
 export default function SwEntry(props) {

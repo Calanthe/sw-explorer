@@ -3,7 +3,7 @@ import SwEntry from './SwEntry';
 import useFetch from "../utils/useFetch";
 
 import { getWindowHost } from "../utils/urlUtils";
-import { maxPages } from "../utils/knownData";
+import { queryTypes, maxPages } from "../utils/knownData";
 
 const showFetchMoreBtn = (pageNo, dataType) => {
     return pageNo < maxPages[dataType];
@@ -17,7 +17,7 @@ export default function SwExplorer(props) {
     let loading = true, 
         error;
 
-    [swData, loading, error] = useFetch(dataType, pageNo, swData);
+    [swData, loading, error] = useFetch(queryTypes[dataType], pageNo, swData);
     
     const getSwData = () => {
         setSwData(swData);
