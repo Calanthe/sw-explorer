@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 // This custom hook centralizes and streamlines handling of HTTP calls
@@ -6,6 +6,9 @@ export default function useFetch(urlName, pageNo, prevData) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const prevUrlName = useRef(urlName);
+  console.log(prevUrlName)
 
   useEffect(() => {
     setLoading(true);

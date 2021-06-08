@@ -90,6 +90,14 @@ body {
   padding: 0 0 4px 0;
 }
 
+.entry-long-text {
+  font-style: italic;
+  text-overflow: ellipsis;
+  height: 141px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
 .entry-img {
   position: absolute;
   bottom: 10px;

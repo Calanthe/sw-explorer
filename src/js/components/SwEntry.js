@@ -16,7 +16,7 @@ export const SwEntriesMovies = ({ entry }) => {
             <p className="entry-info">director: {entry.director}</p>
             <p className="entry-info">producer: {entry.producer}</p>
             <p className="entry-info">release date: {entry.release_date}</p>
-            <p className="entry-info">opening crawl: {entry.opening_crawl}</p>
+            <p className="entry-info">opening crawl: <p className="entry-long-text">{entry.opening_crawl}</p></p>
             <img src={getMovieImg(entry.name)} className="entry-img" alt={entry.name} />
         </div>
     )
