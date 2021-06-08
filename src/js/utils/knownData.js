@@ -12,7 +12,7 @@ export function isKnownCharacter (name) {
     });
 };
 
-const knownMovies = ['A New Hope', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi'];
+const knownMovies = ['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'The Phantom Menace', 'Attack of the Clones', 'Revenge of the Sith'];
 
 export function isKnownMovie (name) {
     return knownMovies.find((element) => {
