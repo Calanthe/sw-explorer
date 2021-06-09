@@ -1,6 +1,7 @@
 export const queryTypes = {
     'characters': 'people',
-    'movies': 'films'
+    'movies': 'films',
+    'starships': 'starships'
 };
 
 const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi', 'Anakin Skywalker', 'Chewbacca', 'Han Solo', 'Greedo', 'Jabba Desilijic Tiure', 'Yoda', 'Palpatine',
@@ -22,5 +23,6 @@ export function isKnownMovie (name) {
 
 export const maxPages = {
     'characters': 9,
-    'movies': 0
+    'movies': 0,
+    'starships': 4
 };

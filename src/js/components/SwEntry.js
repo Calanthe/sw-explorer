@@ -46,9 +46,38 @@ export const SwEntriesCharacters = ({ entry }) => {
     )
 };
 
+const getStarshipImg = (name) => {
+    if (isKnownCharacter(name)) {
+        return `${getWindowHost()}/img/characters/${removeWhiteSpaces(name)}.png`;
+    }
+    else return `${getWindowHost()}/img/not-found.png`;
+};
+
+
+export const SwEntriesStarships = ({ entry }) => {
+    return (
+        <div className="entry">
+            <h5 className="entry-header">{entry.name}</h5>
+            <p className="entry-info">megalight per hour: {entry.MGLT}</p>                
+            <p className="entry-info">cargo capacity: {entry.cargo_capacity}</p>
+            <p className="entry-info">consumables: {entry.consumables}</p>
+            <p className="entry-info">cost: {entry.cost_in_credits} credits</p>
+            <p className="entry-info">hyperdrive rating: {entry.hyperdrive_rating}</p>
+            <p className="entry-info">length: {entry.length}</p>
+            <p className="entry-info">manufacturer: {entry.manufacturer}</p>
+            <p className="entry-info">max atmosphering speed: {entry.max_atmosphering_speed}</p>
+            <p className="entry-info">passengers: {entry.passengers}</p>
+            <p className="entry-info">starship class: {entry.starship_class}</p>
+            <img src={getStarshipImg(entry.name)} className="entry-img" alt={entry.name} />
+        </div>      
+    )
+};
+
+
 const SwEntriesTemplates = {
     'characters': SwEntriesCharacters,
-    'movies': SwEntriesMovies
+    'movies': SwEntriesMovies,
+    'starships': SwEntriesStarships
 };
 
 export default function SwEntry(props) {
