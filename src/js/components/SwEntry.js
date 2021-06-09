@@ -9,19 +9,6 @@ const getImg = (name, dataType) => {
     else return `${getWindowHost()}/img/not-found.png`;
 };
 
-export const SwEntriesMovies = ({ entry }) => {
-    return (
-        <div className="entry">
-            <h5 className="entry-header">{entry.title}</h5>
-            <p className="entry-info">director: {entry.director}</p>
-            <p className="entry-info">producer: {entry.producer}</p>
-            <p className="entry-info">release date: {entry.release_date}</p>
-            <p className="entry-long-text">{entry.opening_crawl}</p>
-            <img src={getImg(entry.title, 'movies')} className="entry-img" alt={entry.name} />
-        </div>
-    )
-};
-
 export const SwEntriesCharacters = ({ entry }) => {
     return (
         <div className="entry">
@@ -35,6 +22,19 @@ export const SwEntriesCharacters = ({ entry }) => {
             <p className="entry-info">skin color: {entry.skin_color}</p>
             <img src={getImg(entry.name, 'characters')} className="entry-img" alt={entry.name} />
         </div>      
+    )
+};
+
+export const SwEntriesMovies = ({ entry }) => {
+    return (
+        <div className="entry">
+            <h5 className="entry-header">{entry.title}</h5>
+            <p className="entry-info">director: {entry.director}</p>
+            <p className="entry-info">producer: {entry.producer}</p>
+            <p className="entry-info">release date: {entry.release_date}</p>
+            <p className="entry-long-text">{entry.opening_crawl}</p>
+            <img src={getImg(entry.title, 'movies')} className="entry-img" alt={entry.name} />
+        </div>
     )
 };
 
@@ -57,10 +57,28 @@ export const SwEntriesStarships = ({ entry }) => {
     )
 };
 
+export const SwEntriesPlanets = ({ entry }) => {
+    return (
+        <div className="entry">
+            <h5 className="entry-header">{entry.name}</h5>
+            <p className="entry-info">climate: {entry.climate}</p>                
+            <p className="entry-info">diameter: {entry.diameter} km</p>
+            <p className="entry-info">gravity: {entry.gravity}</p>
+            <p className="entry-info">orbital period: {entry.orbital_period} years</p>
+            <p className="entry-info">population: {entry.population}</p>
+            <p className="entry-info">rotation period: {entry.rotation_period} years</p>
+            <p className="entry-info">surface water: {entry.surface_water}</p>
+            <p className="entry-info">terrain: {entry.terrain}</p>
+            <img src={getImg(entry.name, 'planets')} className="entry-img" alt={entry.name} />
+        </div>      
+    )
+};
+
 const SwEntriesTemplates = {
     'characters': SwEntriesCharacters,
     'movies': SwEntriesMovies,
-    'starships': SwEntriesStarships
+    'starships': SwEntriesStarships,
+    'planets': SwEntriesPlanets
 };
 
 export default function SwEntry(props) {

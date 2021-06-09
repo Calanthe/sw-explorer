@@ -1,7 +1,6 @@
 import './App.css';
 import SwExplorer from './js/components/SwExplorer';
 import { getWindowHost } from "./js/utils/urlUtils";
-import { queryTypes } from "./js/utils/knownData";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +29,7 @@ function App() {
               <Link to="/starships" className="menu-link">Starships</Link>
             </li>
             <li className="menu-item">
-              <Link to="/characters" className="menu-link">Planets</Link>
+              <Link to="/planets" className="menu-link">Planets</Link>
             </li>
             <li className="menu-item">
               <Link to="/characters" className="menu-link">Vehicles</Link>
@@ -50,6 +49,9 @@ function App() {
           </Route>
           <Route path="/starships">
             <SwExplorer dataType="starships"/>
+          </Route>
+          <Route path="/planets">
+            <SwExplorer dataType="planets"/>
           </Route>
           <Route 
             exact
