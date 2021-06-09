@@ -1,10 +1,10 @@
 import * as React from "react";
-import { isKnownCharacter, isKnownMovie } from "../utils/knownData";
+import { isKnownData } from "../utils/knownData";
 import { getWindowHost, removeWhiteSpaces } from "../utils/urlUtils";
 
-const getMovieImg = (name) => {
-    if (isKnownMovie(name)) {
-        return `${getWindowHost()}/img/movies/${removeWhiteSpaces(name)}.png`;
+const getImg = (name, dataType) => {
+    if (isKnownData(name)) {
+        return `${getWindowHost()}/img/${dataType}/${removeWhiteSpaces(name)}.png`;
     }
     else return `${getWindowHost()}/img/not-found.png`;
 };
@@ -17,18 +17,10 @@ export const SwEntriesMovies = ({ entry }) => {
             <p className="entry-info">producer: {entry.producer}</p>
             <p className="entry-info">release date: {entry.release_date}</p>
             <p className="entry-long-text">{entry.opening_crawl}</p>
-            <img src={getMovieImg(entry.title)} className="entry-img" alt={entry.name} />
+            <img src={getImg(entry.title, 'movies')} className="entry-img" alt={entry.name} />
         </div>
     )
 };
-
-const getCharacterImg = (name) => {
-    if (isKnownCharacter(name)) {
-        return `${getWindowHost()}/img/characters/${removeWhiteSpaces(name)}.png`;
-    }
-    else return `${getWindowHost()}/img/not-found.png`;
-};
-
 
 export const SwEntriesCharacters = ({ entry }) => {
     return (
@@ -41,18 +33,10 @@ export const SwEntriesCharacters = ({ entry }) => {
             <p className="entry-info">eye color: {entry.eye_color}</p>
             <p className="entry-info">hair color: {entry.hair_color}</p>
             <p className="entry-info">skin color: {entry.skin_color}</p>
-            <img src={getCharacterImg(entry.name)} className="entry-img" alt={entry.name} />
+            <img src={getImg(entry.name, 'characters')} className="entry-img" alt={entry.name} />
         </div>      
     )
 };
-
-const getStarshipImg = (name) => {
-    if (isKnownCharacter(name)) {
-        return `${getWindowHost()}/img/characters/${removeWhiteSpaces(name)}.png`;
-    }
-    else return `${getWindowHost()}/img/not-found.png`;
-};
-
 
 export const SwEntriesStarships = ({ entry }) => {
     return (
@@ -68,11 +52,10 @@ export const SwEntriesStarships = ({ entry }) => {
             <p className="entry-info">max atmosphering speed: {entry.max_atmosphering_speed}</p>
             <p className="entry-info">passengers: {entry.passengers}</p>
             <p className="entry-info">starship class: {entry.starship_class}</p>
-            <img src={getStarshipImg(entry.name)} className="entry-img" alt={entry.name} />
+            <img src={getImg(entry.name, 'starships')} className="entry-img" alt={entry.name} />
         </div>      
     )
 };
-
 
 const SwEntriesTemplates = {
     'characters': SwEntriesCharacters,
