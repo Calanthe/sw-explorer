@@ -74,11 +74,30 @@ export const SwEntriesPlanets = ({ entry }) => {
     )
 };
 
+export const SwEntriesVehicles = ({ entry }) => {
+    return (
+        <div className="entry">
+            <h5 className="entry-header">{entry.name}</h5>
+            <p className="entry-info">cargo capacity: {entry.cargo_capacity}</p>                
+            <p className="entry-info">consumables: {entry.consumables}</p>
+            <p className="entry-info">cost: {entry.cost_in_credits} credits</p>
+            <p className="entry-info">crew: {entry.crew}</p>
+            <p className="entry-info">length: {entry.length} m</p>
+            <p className="entry-info">manufacturer: {entry.manufacturer}</p>
+            <p className="entry-info">max atmosphering speed: {entry.max_atmosphering_speed}</p>
+            <p className="entry-info">passengers: {entry.passengers}</p>
+            <p className="entry-info">vehicle class: {entry.vehicle_class}</p>
+            <img src={getImg(entry.name, 'vehicles')} className="entry-img" alt={entry.name} />
+        </div>      
+    )
+};
+
 const SwEntriesTemplates = {
     'characters': SwEntriesCharacters,
     'movies': SwEntriesMovies,
     'starships': SwEntriesStarships,
-    'planets': SwEntriesPlanets
+    'planets': SwEntriesPlanets,
+    'vehicles': SwEntriesVehicles
 };
 
 export default function SwEntry(props) {

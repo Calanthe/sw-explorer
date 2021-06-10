@@ -32,7 +32,7 @@ function App() {
               <Link to="/planets" className="menu-link">Planets</Link>
             </li>
             <li className="menu-item">
-              <Link to="/characters" className="menu-link">Vehicles</Link>
+              <Link to="/vehicles" className="menu-link">Vehicles</Link>
             </li>
             <li className="menu-item">
               <Link to="/characters" className="menu-link">Species</Link>
@@ -52,6 +52,9 @@ function App() {
           </Route>
           <Route path="/planets">
             <SwExplorer dataType="planets"/>
+          </Route>
+          <Route path="/vehicles">
+            <SwExplorer dataType="vehicles"/>
           </Route>
           <Route 
             exact
