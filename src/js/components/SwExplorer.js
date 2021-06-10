@@ -2,7 +2,7 @@ import { useState } from "react";
 import SwEntry from './SwEntry';
 import useFetch from "../utils/useFetch";
 
-import { getWindowHost } from "../utils/urlUtils";
+import { getWindowHost } from "../utils/utils";
 import { queryTypes, maxPages } from "../utils/knownData";
 
 const showFetchMoreBtn = (pageNo, dataType) => {

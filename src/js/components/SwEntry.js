@@ -1,6 +1,6 @@
 import * as React from "react";
 import { isKnownData } from "../utils/knownData";
-import { getWindowHost, removeWhiteSpaces } from "../utils/urlUtils";
+import { getWindowHost, removeWhiteSpaces, showUnits} from "../utils/utils";
 
 const getImg = (name, dataType) => {
     if (isKnownData(name)) {
@@ -15,8 +15,8 @@ export const SwEntriesCharacters = ({ entry }) => {
             <h5 className="entry-header">{entry.name}</h5>
             <p className="entry-info">birth year: {entry.birth_year}</p>                
             <p className="entry-info">gender: {entry.gender}</p>
-            <p className="entry-info">height: {entry.height} cm</p>
-            <p className="entry-info">mass: {entry.mass} kg</p>
+            <p className="entry-info">height: {entry.height} {showUnits(entry.height, 'cm')}</p>
+            <p className="entry-info">mass: {entry.mass} {showUnits(entry.mass, 'kg')}</p>
             <p className="entry-info">eye color: {entry.eye_color}</p>
             <p className="entry-info">hair color: {entry.hair_color}</p>
             <p className="entry-info">skin color: {entry.skin_color}</p>
@@ -45,7 +45,7 @@ export const SwEntriesStarships = ({ entry }) => {
             <p className="entry-info">megalight per hour: {entry.MGLT}</p>                
             <p className="entry-info">cargo capacity: {entry.cargo_capacity}</p>
             <p className="entry-info">consumables: {entry.consumables}</p>
-            <p className="entry-info">cost: {entry.cost_in_credits} credits</p>
+            <p className="entry-info">cost: {entry.cost_in_credits} {showUnits(entry.cost_in_credits, 'credits')}</p>
             <p className="entry-info">hyperdrive rating: {entry.hyperdrive_rating}</p>
             <p className="entry-info">length: {entry.length}</p>
             <p className="entry-info">manufacturer: {entry.manufacturer}</p>
@@ -62,11 +62,11 @@ export const SwEntriesPlanets = ({ entry }) => {
         <div className="entry">
             <h5 className="entry-header">{entry.name}</h5>
             <p className="entry-info">climate: {entry.climate}</p>                
-            <p className="entry-info">diameter: {entry.diameter} km</p>
+            <p className="entry-info">diameter: {entry.diameter} {showUnits(entry.orbital_period, 'km')}</p>
             <p className="entry-info">gravity: {entry.gravity}</p>
-            <p className="entry-info">orbital period: {entry.orbital_period} years</p>
+            <p className="entry-info">orbital period: {entry.orbital_period} {showUnits(entry.orbital_period, 'years')}</p>
             <p className="entry-info">population: {entry.population}</p>
-            <p className="entry-info">rotation period: {entry.rotation_period} years</p>
+            <p className="entry-info">rotation period: {entry.rotation_period} {showUnits(entry.rotation_period, 'years')}</p>
             <p className="entry-info">surface water: {entry.surface_water}</p>
             <p className="entry-info">terrain: {entry.terrain}</p>
             <img src={getImg(entry.name, 'planets')} className="entry-img" alt={entry.name} />
@@ -80,9 +80,9 @@ export const SwEntriesVehicles = ({ entry }) => {
             <h5 className="entry-header">{entry.name}</h5>
             <p className="entry-info">cargo capacity: {entry.cargo_capacity}</p>                
             <p className="entry-info">consumables: {entry.consumables}</p>
-            <p className="entry-info">cost: {entry.cost_in_credits} credits</p>
+            <p className="entry-info">cost: {entry.cost_in_credits} {showUnits(entry.cost_in_credits, 'credits')}</p>
             <p className="entry-info">crew: {entry.crew}</p>
-            <p className="entry-info">length: {entry.length} m</p>
+            <p className="entry-info">length: {entry.length} {showUnits(entry.length, 'm')}</p>
             <p className="entry-info">manufacturer: {entry.manufacturer}</p>
             <p className="entry-info">max atmosphering speed: {entry.max_atmosphering_speed}</p>
             <p className="entry-info">passengers: {entry.passengers}</p>
@@ -96,8 +96,8 @@ export const SwEntriesSpecies = ({ entry }) => {
     return (
         <div className="entry">
             <h5 className="entry-header">{entry.name}</h5>
-            <p className="entry-info">average height: {entry.average_height} cm</p>                
-            <p className="entry-info">average lifespan: {entry.average_lifespan} years</p>
+            <p className="entry-info">average height: {entry.average_height} {showUnits(entry.average_height, 'cm')}</p>                
+            <p className="entry-info">average lifespan: {entry.average_lifespan} {showUnits(entry.average_lifespan, 'years')}</p>
             <p className="entry-info">classification: {entry.classification}</p>
             <p className="entry-info">designation: {entry.designation}</p>
             <p className="entry-info">eye colors: {entry.eye_colors}</p>

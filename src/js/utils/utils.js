@@ -5,3 +5,7 @@ export function removeWhiteSpaces(string) {
 export function getWindowHost() {
     return window.location.protocol + "//" + window.location.host;
 };
+
+export function showUnits(value, unit) {
+    return (value !== 'n/a' && value !== 'unknown') ? unit : '';
+};

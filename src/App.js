@@ -1,6 +1,6 @@
 import './App.css';
 import SwExplorer from './js/components/SwExplorer';
-import { getWindowHost } from "./js/utils/urlUtils";
+import { getWindowHost } from "./js/utils/utils";
 import {
   BrowserRouter as Router,
   Switch,
