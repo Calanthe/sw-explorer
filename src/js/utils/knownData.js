@@ -3,7 +3,8 @@ export const queryTypes = {
     'movies': 'films',
     'starships': 'starships',
     'planets': 'planets',
-    'vehicles': 'vehicles'
+    'vehicles': 'vehicles',
+    'species': 'species'
 };
 
 const knownCharacters = ['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa', 'Obi-Wan Kenobi', 'Anakin Skywalker', 'Chewbacca', 'Han Solo', 'Greedo', 'Jabba Desilijic Tiure', 'Yoda', 'Palpatine',
@@ -24,5 +25,6 @@ export const maxPages = {
     'movies': 0,
     'starships': 4,
     'planets': 6,
-    'vehicles': 4
+    'vehicles': 4,
+    'species': 4
 };
