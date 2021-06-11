@@ -15,7 +15,9 @@ const knownMovies = ['A New Hope', 'The Empire Strikes Back', 'Return of the Jed
 const knownStarships = ['Death Star', 'Imperial Shuttle', 'Slave 1' ,'Millennium Falcon', 'Star Destroyer', 'X-wing', 'Y-wing', 'TIE Advanced x1', 'Imperial shuttle', 'Calamari Cruiser', 'A-wing', 'B-wing',
 'Republic Cruiser', 'Naboo fighter', 'Naboo Royal Starship', 'Jedi starfighter', 'Trade Federation cruiser', 'Republic attack cruiser', 'Naboo star skiff', 'Sentinel-class landing craft'];
 
-const allKnownData = knownCharacters.concat(knownMovies, knownStarships);
+const knownVehicles = ['X-34 landspeeder', 'TIE/LN starfighter', 'TIE bomber', 'AT-AT', 'AT-ST', 'Imperial Speeder Bike', 'TIE/IN interceptor', 'AT-RT'];
+
+const allKnownData = knownCharacters.concat(knownMovies, knownStarships, knownVehicles);
 
 export function isKnownData (name) {
     return allKnownData.find((element) => {

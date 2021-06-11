@@ -1,5 +1,5 @@
 export function removeWhiteSpaces(string) {
-    return string.replace(/\s/g, '');
+    return string.replace(/\s/g, '').replace('/','-');
 };
 
 export function getWindowHost() {
