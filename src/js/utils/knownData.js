@@ -17,7 +17,9 @@ const knownStarships = ['Death Star', 'Imperial Shuttle', 'Slave 1' ,'Millennium
 
 const knownVehicles = ['X-34 landspeeder', 'TIE/LN starfighter', 'TIE bomber', 'AT-AT', 'AT-ST', 'Imperial Speeder Bike', 'TIE/IN interceptor', 'AT-RT'];
 
-const allKnownData = knownCharacters.concat(knownMovies, knownStarships, knownVehicles);
+const knownSpecies = ['Human', 'Droid', 'Ewok', 'Human', 'Hutt', 'MonCalamari', 'Rodian', 'Wookie', 'Yoda\'s species', 'Gungan', 'Toydarian', '' ];
+
+const allKnownData = knownCharacters.concat(knownMovies, knownStarships, knownVehicles, knownSpecies);
 
 export function isKnownData (name) {
     return allKnownData.find((element) => {
