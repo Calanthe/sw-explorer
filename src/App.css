@@ -61,7 +61,7 @@ body {
 
 .entries {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(3, 270px);
   gap: 15px 10px;
 }
 
@@ -70,7 +70,7 @@ body {
   background-color: #F8F8F8;
   border-radius: 14px;
   padding: 10px;
-  height: 380px;
+  height: 410px;
   background: repeating-linear-gradient(
 	45deg,
 	#efeff0,
@@ -81,25 +81,37 @@ body {
 }
 
 .entry-header {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  text-transform: uppercase;
   padding: 0 0 10px 0;
 }
 
 .entry-info {
-  padding: 0 0 4px 0;
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  padding: 4px 0;
+  margin: 6px 0;
+  background-color: #efeff0;
+  border-bottom: #d4d4d4 1px solid;
+}
+
+.entry-label {
+  font-weight: bold;
 }
 
 .entry-long-text {
   font-style: italic;
-  text-overflow: ellipsis;
-  height: 99px;
+  font-size: 12px;
+  height: 155px;
   overflow: hidden;
   margin: 10px 0;
 }
 
 .entry-img {
   position: absolute;
+  z-index: 0;
   bottom: 10px;
   right: 10px;
 }
