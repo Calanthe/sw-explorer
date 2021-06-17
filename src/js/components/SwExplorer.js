@@ -9,19 +9,42 @@ const showFetchMoreBtn = (pageNo, dataType) => {
     return pageNo < maxPages[dataType];
 };
 
+const initialisePageNoState = () => {
+    return {
+        'characters': 1,
+        'movies': 1,
+        'starships': 1,
+        'planets': 1,
+        'vehicles': 1,
+        'species': 1
+    }
+};
+
+const initialiseDataState = () => {
+    return {
+        'characters': [],
+        'movies': [],
+        'starships': [],
+        'planets': [],
+        'vehicles': [],
+        'species': []
+    }
+};
+
 export default function SwExplorer(props) {
     const dataType = props.dataType;
-    const [pageNo, setPageNo] = useState(1);
+    const [pageNo, setPageNo] = useState(initialisePageNoState());
 
-    let [swData, setSwData] = useState([]);
+    let [swData, setSwData] = useState(initialiseDataState());
     let loading = true, 
         error;
 
-    [swData, loading, error] = useFetch(queryTypes[dataType], pageNo, swData);
+    [swData, loading, error] = useFetch(queryTypes[dataType], pageNo[dataType], swData[dataType]);
     
     const getSwData = () => {
-        setSwData(swData);
-        setPageNo(pageNo + 1);
+        // Spreading "...state" ensures we don't "lose" pageNo and fetched data of the other types (subpages)
+        setSwData(state => ({ ...state, [dataType]: swData }));
+        setPageNo(state => ({ ...state, [dataType]: state[dataType] + 1 }));
     };
 
     return (
@@ -37,7 +60,7 @@ export default function SwExplorer(props) {
                 { error ? error : '' }
                 { loading ? <img src={`${getWindowHost()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
             </div>
-            {showFetchMoreBtn(pageNo, dataType) ? 
+            {showFetchMoreBtn(pageNo[dataType], dataType) ? 
                 <p>
                     <button onClick={() => {
                         getSwData()
