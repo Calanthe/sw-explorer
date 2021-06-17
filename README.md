@@ -6,6 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+TODO:
+- analytics
+- mobile
+- tests
+- ts
+- readme
+- make sure that fork me on gh works
+
 ### `yarn start`
 
 Runs the app in the development mode.\
