@@ -74,7 +74,7 @@ function App() {
         </Switch>
 
         <footer className="footer">
-            <p>Made by <a href="{{ site.url }}" className="footer-link">Zofia Korcz</a> using <a href="https://swapi.dev/">swapi</a>.</p>
+            <p>Made by <a href="https://zofiakorcz.pl" className="footer-link">Zofia Korcz</a> using <a href="https://swapi.dev/" className="footer-link">The Star Wars API</a>.</p>
         </footer>
       </div>
     </Router>

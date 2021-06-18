@@ -60,7 +60,7 @@ export default function SwExplorer(props) {
                 { error ? error : '' }
                 { loading ? <img src={`${getWindowHost()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
             </div>
-            {showFetchMoreBtn(pageNo[dataType], dataType) ? 
+            {(showFetchMoreBtn(pageNo[dataType], dataType) && !error) ? 
                 <p>
                     <button onClick={() => {
                         getSwData()

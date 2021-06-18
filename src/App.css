@@ -179,3 +179,18 @@ body {
   height: 100px;
 }
 
+.footer {
+  width: 830px;
+  margin: 10px auto;
+  text-align: center;
+  color: #FDF252;
+}
+
+.footer-link {
+  color: #D2C951;
+  text-decoration: none;
+}
+
+.footer-link:hover, :active, :focus {
+  color: #FDF252;
+}
