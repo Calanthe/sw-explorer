@@ -1,4 +1,3 @@
-import * as React from "react";
 import { isKnownData } from "../utils/knownData";
 import { getWindowHost, removeWhiteSpaces, showUnits} from "../utils/utils";
 
