@@ -2,7 +2,7 @@ import * as React from "react";
 import { isKnownData } from "../utils/knownData";
 import { getWindowHost, removeWhiteSpaces, showUnits} from "../utils/utils";
 
-const getImg = (name, dataType) => {
+const getImg = (name: string, dataType: string) => {
     if (isKnownData(name)) {
         return `${getWindowHost()}/img/${dataType}/${removeWhiteSpaces(name)}.png`;
     }
@@ -117,7 +117,12 @@ const SwEntriesTemplates = {
     'species': SwEntriesSpecies
 };
 
-export default function SwEntry(props) {
+interface swProps {
+    type: string;
+    data: object;
+}
+
+export default function SwEntry(props: swProps) {
     const SWEntryTemplate = SwEntriesTemplates[props.type];
 
     return (

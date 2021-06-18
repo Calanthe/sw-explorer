@@ -21,7 +21,7 @@ const knownSpecies = ['Human', 'Droid', 'Ewok', 'Human', 'Hutt', 'MonCalamari', 
 
 const allKnownData = knownCharacters.concat(knownMovies, knownStarships, knownVehicles, knownSpecies);
 
-export function isKnownData (name) {
+export function isKnownData (name: string) {
     return allKnownData.find((element) => {
         return element === name;
     });
