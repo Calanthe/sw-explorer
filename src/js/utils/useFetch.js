@@ -12,8 +12,7 @@ export default function useFetch(urlName, pageNo, prevData) {
     return axios
         .get(`https://swapi.dev/api/${urlName}/?page=${pageNo}`)
         .then(response => {
-          if (response) return response.data.results;
-          setError(response);
+          if (response.data) return response.data.results;
         })
         .then(data => {
           const newData = [
@@ -24,7 +23,7 @@ export default function useFetch(urlName, pageNo, prevData) {
         })
         .catch(err => {
           console.error(err);
-          setError(err);
+          setError('An error occured. Please try again later.');
         })
         .finally(() => setLoading(false));
   }, [urlName, pageNo, prevData]);
