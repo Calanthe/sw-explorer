@@ -9,8 +9,7 @@ In the project directory, you can run:
 TODO:
 - mobile
 - tests
-- ts
-- readme
+- readme based on the https://github.com/Yog9/SnapShot
 - make sure that fork me on gh works
 
 ### `yarn start`

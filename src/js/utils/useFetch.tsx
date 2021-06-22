@@ -7,6 +7,9 @@ export default function useFetch(urlName: string, pageNo: number, prevData: []) 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  console.log('inside useFetch', prevData)
+
+  //@ts-ignore
   useEffect(() => {
     setLoading(true);
     axios
@@ -26,7 +29,7 @@ export default function useFetch(urlName: string, pageNo: number, prevData: []) 
           setError('An error occured. Please try again later.');
         })
         .finally(() => setLoading(false));
-  }, [urlName, pageNo, prevData]);
+  }, [urlName, pageNo]);
 
   return [ data, loading, error ];
 }

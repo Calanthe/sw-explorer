@@ -35,6 +35,8 @@ interface swProps {
 	dataType: string;
 }
 
+
+//@ts-ignore
 export default function SwExplorer(props: swProps) {
     const dataType = props.dataType;
     const [pageNo, setPageNo] = useState(initialisePageNoState());
@@ -44,10 +46,12 @@ export default function SwExplorer(props: swProps) {
         error: string;
 
     [swData[dataType], loading, error] = useFetch(queryTypes[dataType], pageNo[dataType], swData[dataType]);
+
+    console.log(pageNo, swData)
     
     const getSwData = () => {
         // Spreading "...state" ensures we don't "lose" pageNo and fetched data of the other types (subpages)
-        setSwData(state => ({ ...state, [dataType]: swData }));
+        setSwData(state => ({ ...state, [dataType]: swData[dataType] }));
         setPageNo(state => ({ ...state, [dataType]: state[dataType] + 1 }));
     };
 
