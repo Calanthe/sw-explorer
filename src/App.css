@@ -34,7 +34,7 @@ body {
   padding: 0 10px;
 }
 
-.menu-link {
+.menu__link {
   --fill-color: #FDF252;
   position: relative;
   display: block;
@@ -50,7 +50,12 @@ body {
   transition: 0.3s linear;
 }
 
-.menu-link:hover {
+.menu__link--active {
+  color: #FDF252;
+  background: none;
+}
+
+.menu__link:hover {
   background-size: 100%;
 }
 

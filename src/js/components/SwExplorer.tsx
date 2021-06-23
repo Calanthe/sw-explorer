@@ -35,8 +35,6 @@ interface swProps {
 	dataType: string;
 }
 
-
-//@ts-ignore
 export default function SwExplorer(props: swProps) {
     const dataType = props.dataType;
     const [pageNo, setPageNo] = useState(initialisePageNoState());
