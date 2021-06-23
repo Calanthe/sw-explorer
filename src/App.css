@@ -180,7 +180,6 @@ body {
 }
 
 .footer {
-  width: 830px;
   margin: 10px auto;
   text-align: center;
   color: #FDF252;
@@ -193,4 +192,19 @@ body {
 
 .footer-link:hover, :active, :focus {
   color: #FDF252;
+}
+
+@media only screen and (max-width: 840px) {
+  .menu {
+    flex-direction: column;
+    width: 200px;
+  }
+
+  .entries-wrapper {
+    width: 300px;
+  }
+
+  .entries {
+    grid-template-columns: repeat(1, 270px);
+  }
 }
