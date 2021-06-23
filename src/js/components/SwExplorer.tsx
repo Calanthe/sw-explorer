@@ -54,7 +54,7 @@ export default function SwExplorer(props: swProps) {
     };
 
     return (
-        <div className="entries-wrapper">
+        <div className="entries__wrapper">
             <div className="entries">
             {
                 swData[dataType]?.map((entry: object, idx: number) => (

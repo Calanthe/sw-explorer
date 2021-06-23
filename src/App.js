@@ -15,8 +15,8 @@ function App() {
       <div className="App">
         <nav>
           <header className="header">
-            <img src={`${getWindowHost()}/img/star.svg`} alt="Star" className="header-img"/>
-            <img src={`${getWindowHost()}/img/wars.svg`} alt="Wars" className="header-img"/>
+            <img src={`${getWindowHost()}/img/star.svg`} alt="Star" className="header__img"/>
+            <img src={`${getWindowHost()}/img/wars.svg`} alt="Wars" className="header__img"/>
           </header>
           <Menu/>
         </nav>
@@ -55,7 +55,7 @@ function App() {
         </Switch>
 
         <footer className="footer">
-            <p>Made by <a href="https://zofiakorcz.pl" className="footer-link">Zofia Korcz</a> using <a href="https://swapi.dev/" className="footer-link">The Star Wars API</a>.</p>
+            <p>Made by <a href="https://zofiakorcz.pl" className="footer__link">Zofia Korcz</a> using <a href="https://swapi.dev/" className="footer__link">The Star Wars API</a>.</p>
         </footer>
       </div>
     </Router>
