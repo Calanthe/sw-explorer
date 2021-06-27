@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SwEntry from './SwEntry';
 import useFetch from "../utils/useFetch";
 
 import { getWindowHost } from "../utils/utils";
 import { queryTypes, maxPages } from "../utils/knownData";
+import axios from "axios";
 
 const showFetchMoreBtn = (pageNo: number, dataType: string) => {
     return pageNo < maxPages[dataType];
@@ -40,16 +41,47 @@ export default function SwExplorer(props: swProps) {
     const [pageNo, setPageNo] = useState(initialisePageNoState());
 
     let [swData, setSwData] = useState(initialiseDataState());
-    let loading = true, 
-        error: string;
 
-    [swData[dataType], loading, error] = useFetch(queryTypes[dataType], pageNo[dataType], swData[dataType]);
 
-    console.log(pageNo, swData)
+    // let data,
+    //     loading = true, 
+    //     error: string;
+
+
+    //[data, loading, error] = useFetch(queryTypes[dataType], pageNo[dataType]);
+    // TODO: try
+    // //[data, loading, error] = useFetch(queryTypes[dataType], pageNo[dataType], (data) => {
+    //    setSwData(state => ({ ...state, [dataType]: [...swData[dataType], ...data]}));
+    // });
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+
+  
+    //@ts-ignore
+    useEffect(() => {
+      const urlName = queryTypes[dataType];
+      const page = pageNo[dataType];
+
+      console.log("useEffect called", urlName, page)
+      setLoading(true);
+      axios
+          .get(`https://swapi.dev/api/${urlName}/?page=${page}`)
+          .then(response => {
+            if (response.data) return response.data.results;
+          })
+          .then(data => {
+            setSwData(state => ({ ...state, [dataType]: [...swData[dataType], ...data]}));
+          })
+          .catch(err => {
+            console.error(err);
+            setError('An error occured. Please try again later.');
+          })
+          .finally(() => setLoading(false));
+    }, [dataType, pageNo]);
     
     const getSwData = () => {
         // Spreading "...state" ensures we don't "lose" pageNo and fetched data of the other types (subpages)
-        setSwData(state => ({ ...state, [dataType]: swData[dataType] }));
         setPageNo(state => ({ ...state, [dataType]: state[dataType] + 1 }));
     };
 
