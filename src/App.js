@@ -30,22 +30,22 @@ function App() {
         </a>
         <Switch>
           <Route path="/characters">
-            <SwExplorer dataType="characters"/>
+            <SwExplorer key="characters" dataType="characters"/>
           </Route>
           <Route path="/movies">
-            <SwExplorer dataType="movies"/>
+            <SwExplorer key="movies"  dataType="movies"/>
           </Route>
           <Route path="/starships">
-            <SwExplorer dataType="starships"/>
+            <SwExplorer key="starships"  dataType="starships"/>
           </Route>
           <Route path="/planets">
-            <SwExplorer dataType="planets"/>
+            <SwExplorer key="planets"  dataType="planets"/>
           </Route>
           <Route path="/vehicles">
-            <SwExplorer dataType="vehicles"/>
+            <SwExplorer key="vehicles"  dataType="vehicles"/>
           </Route>
           <Route path="/species">
-            <SwExplorer dataType="species"/>
+            <SwExplorer key="species"  dataType="species"/>
           </Route>
           <Route 
             exact
