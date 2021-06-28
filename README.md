@@ -26,4 +26,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## License
 
-Cartographers map generator is licensed under the MIT license.
+The Star Wars Explorer app is licensed under the MIT license.
