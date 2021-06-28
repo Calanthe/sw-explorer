@@ -1,7 +1,7 @@
 # Star Wars Explorer
 The Star Wars Explorer is an app created to practise my knowledge related to React, React Hooks and React Router. The Routes were setup for six pages, including: Characters, Movies, Starships, Planets, Vehicles and Species. The data is fetched by the [axios](https://github.com/axios/axios) library using the [Star Wars API](https://swapi.dev/).
 
-Check the Star Wars Explorer app here: https://github.com/Calanthe/swexplorer
+Check the Star Wars Explorer app here: https://zofiakorcz.pl/sw-explorer/
 
 ![Image of Star Wars Explorer](./SwExplorer.png)
 
