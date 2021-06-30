@@ -1,7 +1,7 @@
 import './App.css';
 import SwExplorer from './js/components/SwExplorer.tsx';
 import Menu from './js/components/Menu.tsx';
-import { getWindowHost } from "./js/utils/utils";
+import { getWindowDomain } from "./js/utils/utils";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,8 +15,8 @@ function App() {
       <div className="App">
         <nav>
           <header className="header">
-            <img src={`${getWindowHost()}/img/star.svg`} alt="Star" className="header__img"/>
-            <img src={`${getWindowHost()}/img/wars.svg`} alt="Wars" className="header__img"/>
+            <img src={`${getWindowDomain()}/img/star.svg`} alt="Star" className="header__img"/>
+            <img src={`${getWindowDomain()}/img/wars.svg`} alt="Wars" className="header__img"/>
           </header>
           <Menu/>
         </nav>

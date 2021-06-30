@@ -2,7 +2,7 @@ import { useState } from "react";
 import SwEntry from './SwEntry';
 import useFetch from "../utils/useFetch";
 
-import { getWindowHost } from "../utils/utils";
+import { getWindowDomain } from "../utils/utils";
 import { queryTypes, maxPages } from "../utils/knownData";
 
 const showFetchMoreBtn = (pageNo: number, dataType: string) => {
@@ -63,7 +63,7 @@ export default function SwExplorer(props: swProps) {
             </div>
             <div className="extras">
                 { error ? error : '' }
-                { loading ? <img src={`${getWindowHost()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
+                { loading ? <img src={`${getWindowDomain()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
             </div>
             {(showFetchMoreBtn(pageNo[dataType], dataType) && !error) ? 
                 <p>

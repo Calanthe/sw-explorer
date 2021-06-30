@@ -1,11 +1,11 @@
 import { isKnownData } from "../utils/knownData";
-import { getWindowHost, removeWhiteSpaces, showUnits} from "../utils/utils";
+import { getWindowDomain, removeWhiteSpaces, showUnits} from "../utils/utils";
 
 const getImg = (name: string, dataType: string) => {
     if (isKnownData(name)) {
-        return `${getWindowHost()}/img/${dataType}/${removeWhiteSpaces(name)}.png`;
+        return `${getWindowDomain()}/img/${dataType}/${removeWhiteSpaces(name)}.png`;
     }
-    else return `${getWindowHost()}/img/not-found.png`;
+    else return `${getWindowDomain()}/img/not-found.png`;
 };
 
 export const SwEntriesCharacters = ({ entry }) => {
