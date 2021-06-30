@@ -3,7 +3,7 @@ export function removeWhiteSpaces(string: string) {
 };
 
 export function getWindowDomain() {
-    return window.location.href;
+    return window.location.protocol + "//" + window.location.host + window.location.pathname;
 };
 
 export function showUnits(value: string, unit: string) {
