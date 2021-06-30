@@ -3,7 +3,7 @@ import SwExplorer from './js/components/SwExplorer.tsx';
 import Menu from './js/components/Menu.tsx';
 import { getWindowDomain } from "./js/utils/utils";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect
