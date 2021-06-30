@@ -63,7 +63,7 @@ export default function SwExplorer(props: swProps) {
             </div>
             <div className="extras">
                 { error ? error : '' }
-                { loading ? <img src={`${getWindowDomain()}/img/loader.gif`} className="loader" alt="fetching content" /> : '' }
+                { loading ? <img src={`${getWindowDomain()}img/loader.gif`} className="loader" alt="fetching content" /> : '' }
             </div>
             {(showFetchMoreBtn(pageNo[dataType], dataType) && !error) ? 
                 <p>

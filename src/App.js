@@ -15,8 +15,8 @@ function App() {
       <div className="App">
         <nav>
           <header className="header">
-            <img src={`${getWindowDomain()}/img/star.svg`} alt="Star" className="header__img"/>
-            <img src={`${getWindowDomain()}/img/wars.svg`} alt="Wars" className="header__img"/>
+            <img src={`${getWindowDomain()}img/star.svg`} alt="Star" className="header__img"/>
+            <img src={`${getWindowDomain()}img/wars.svg`} alt="Wars" className="header__img"/>
           </header>
           <Menu/>
         </nav>
